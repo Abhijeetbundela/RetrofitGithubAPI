@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RetrofitGithubAPI</string>
+    <string name="info">Get User Info</string>
+    <string name="username">Enter GitHub User Name</string>
+</resources>
