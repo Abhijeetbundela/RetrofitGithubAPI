@@ -43,11 +43,11 @@ public class RepositoriesActivity extends AppCompatActivity {
 
         mUserName.setText(mReceivedUserName);
 
-        v =findViewById(R.id.include_name);
+        v = findViewById(R.id.include_name);
 
         mRecyclerView = findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        myadapter = new ReposAdapter(myDataSource,getApplicationContext());
+        myadapter = new ReposAdapter(myDataSource, getApplicationContext());
         mRecyclerView.setAdapter(myadapter);
 
 

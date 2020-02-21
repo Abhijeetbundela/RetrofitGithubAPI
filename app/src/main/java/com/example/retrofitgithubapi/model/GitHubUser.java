@@ -22,13 +22,19 @@ public class GitHubUser {
     @SerializedName("email")
     private String email;
 
-    public GitHubUser(String email, String avatar, String following, String followers, String name, String login) {
+    @SerializedName("message")
+    private String message;
+
+
+    public GitHubUser(String email, String avatar, String following, String followers, String name, String login, String message) {
         this.setLogin(login);
         this.setName(name);
         this.setFollowers(followers);
         this.setFollowing(following);
         this.setEmail(email);
         this.setAvatar(avatar);
+        this.message = message;
+
     }
 
     public String getLogin() {
@@ -40,6 +46,7 @@ public class GitHubUser {
     }
 
     public String getName() {
+
         return name;
     }
 
@@ -78,4 +85,14 @@ public class GitHubUser {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+
 }

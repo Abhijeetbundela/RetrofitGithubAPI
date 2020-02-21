@@ -1,5 +1,23 @@
 <resources>
     <string name="app_name">RetrofitGithubAPI</string>
     <string name="info">Get User Info</string>
-    <string name="username">Enter GitHub User Name</string>
+    <string name="following">Following</string>
+    <string name="email_">Email:</string>
+    <string name="email">Email</string>
+    <string name="following_">Following:</string>
+    <string name="followers">Followers</string>
+    <string name="followers_">Followers:</string>
+    <string name="login">Login</string>
+    <string name="login_">Login:</string>
+    <string name="user_name">UserName</string>
+    <string name="user_name_">UserName:</string>
+    <string name="rep_language">Rep. Language</string>
+    <string name="rep_language_">Rep. Language:</string>
+    <string name="rep_description">Rep. Description</string>
+    <string name="rep_description_">Rep. Description:</string>
+    <string name="rep_name">Rep. Name</string>
+    <string name="rep_name_">Rep. Name:</string>
+    <string name="repositories">Repositories</string>
+
+
 </resources>

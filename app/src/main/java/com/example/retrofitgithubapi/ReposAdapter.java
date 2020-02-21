@@ -37,18 +37,17 @@ public class ReposAdapter extends RecyclerView.Adapter<ReposAdapter.ReposViewHol
         holder.repoName.setText(repos.get(position).getName());
 
 
-        if(repos.get(position).getDescription()==null){
+        if (repos.get(position).getDescription() == null) {
             holder.repoDescription.setText("No Description Provided");
-        }else{
+        } else {
             holder.repoDescription.setText(repos.get(position).getDescription());
         }
 
-        if(repos.get(position).getLanguage() == null){
+        if (repos.get(position).getLanguage() == null) {
             holder.repoLanguage.setText("No Language Provided");
-        }else{
+        } else {
             holder.repoLanguage.setText(repos.get(position).getLanguage());
         }
-
 
 
     }

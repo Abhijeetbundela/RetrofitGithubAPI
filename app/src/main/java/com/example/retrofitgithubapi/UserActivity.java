@@ -2,7 +2,6 @@ package com.example.retrofitgithubapi;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -12,7 +11,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.InputEvent;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -34,7 +33,7 @@ public class UserActivity extends AppCompatActivity {
 
     private Button mRepositoriesBtn;
     private ImageView mUserImage;
-    private TextView mUser, mLogin, mFollowers, mFollowing, mEmail;
+    private TextView mUser, mLogin, mFollowers, mFollowing, mEmail, mNotFound;
     private Bundle extras;
     private String newString;
     private Bitmap myImage;
@@ -51,6 +50,7 @@ public class UserActivity extends AppCompatActivity {
         mFollowers = findViewById(R.id.followers);
         mFollowing = findViewById(R.id.following);
         mEmail = findViewById(R.id.email);
+        mNotFound = findViewById(R.id.not_found);
 
         mUserImage = findViewById(R.id.user_image);
 
@@ -60,6 +60,7 @@ public class UserActivity extends AppCompatActivity {
 
         extras = getIntent().getExtras();
         newString = extras.getString("STRING_I_NEED");
+
 
         loadData();
 
@@ -76,13 +77,13 @@ public class UserActivity extends AppCompatActivity {
     private void loadData() {
 
         LayoutInflater layoutInflater = LayoutInflater.from(this);
-        View myview = layoutInflater.inflate(R.layout.custom_progressbar, null);
+        View myView = layoutInflater.inflate(R.layout.custom_progressbar, null);
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setView(myview).setCancelable(false);
+        builder.setView(myView).setCancelable(false);
 
-        TextView mTextView = myview.findViewById(R.id.prg_textview);
+        TextView mTextView = myView.findViewById(R.id.prg_textview);
         mTextView.setText("Loading....");
         final AlertDialog alertDialog = builder.create();
         alertDialog.show();
@@ -96,47 +97,63 @@ public class UserActivity extends AppCompatActivity {
 
                 alertDialog.dismiss();
 
-                if (response.body().getName().isEmpty() || response.body().getName() == null) {
-
-                    mUser.setText("No name provided");
-
-                } else {
-
-                    mUser.setText(response.body().getName());
-
-                }
-
-                mFollowers.setText(response.body().getFollowers());
-                mFollowing.setText(response.body().getFollowing());
-                mLogin.setText(response.body().getLogin());
-
-                if (response.body().getEmail() == null) {
-                    mEmail.setText("No email provided");
-                } else {
-                    mEmail.setText(response.body().getEmail());
-                }
-
-                ImageDownloader task = new ImageDownloader();
                 try {
-                    myImage = task.execute(response.body().getAvatar()).get();
+                    if (response.body().getName() == null) {
+
+                        mUser.setText("No name provided");
+
+                    } else {
+
+                        mUser.setText(response.body().getName());
+
+                    }
+
+                    mFollowers.setText(response.body().getFollowers());
+                    mFollowing.setText(response.body().getFollowing());
+                    mLogin.setText(response.body().getLogin());
+
+                    if (response.body().getEmail() == null) {
+                        mEmail.setText("No email provided");
+                    } else {
+                        mEmail.setText(response.body().getEmail());
+                    }
+
+                    ImageDownloader task = new ImageDownloader();
+                    try {
+                        myImage = task.execute(response.body().getAvatar()).get();
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                    if (myImage == null) {
+                        mUserImage.setImageResource(R.drawable.default_profile);
+
+                    } else {
+
+                        mUserImage.setImageBitmap(myImage);
+
+                    }
+
+                    v.setVisibility(View.VISIBLE);
+                    mRepositoriesBtn.setVisibility(View.VISIBLE);
 
                 } catch (Exception e) {
-                    e.printStackTrace();
+
+                    String s = "User: " + "<b>" + newString.toUpperCase() + "</b> " + " Not Found";
+
+                    mNotFound.setText(Html.fromHtml(s));
+
+                    mNotFound.setVisibility(View.VISIBLE);
+
+                    Toast.makeText(getApplicationContext(), "Not Found", Toast.LENGTH_SHORT).show();
+
+
                 }
 
-                if (myImage == null) {
-                    mUserImage.setImageResource(R.drawable.default_profile);
-
-                } else {
-
-                    mUserImage.setImageBitmap(myImage);
-
-                }
-
-                v.setVisibility(View.VISIBLE);
-                mRepositoriesBtn.setVisibility(View.VISIBLE);
 
             }
+
 
             @Override
             public void onFailure(Call<GitHubUser> call, Throwable t) {

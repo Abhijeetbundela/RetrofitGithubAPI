@@ -1,7 +1,6 @@
 package com.example.retrofitgithubapi.rest;
 
 import com.example.retrofitgithubapi.model.GitHubRepo;
-import com.example.retrofitgithubapi.model.GitHubUser;
 
 import java.util.List;
 

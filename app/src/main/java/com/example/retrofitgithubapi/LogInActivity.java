@@ -28,13 +28,12 @@ public class LogInActivity extends AppCompatActivity {
 
                 String inputUserName = mInputUserName.getEditText().getText().toString().trim();
 
-                if(inputUserName.isEmpty()){
+                if (inputUserName.isEmpty()) {
                     mInputUserName.setError("Enter UserName");
-                }else{
+                } else {
                     mInputUserName.setErrorEnabled(false);
-                    startActivity(new Intent(getApplicationContext(),UserActivity.class).putExtra("STRING_I_NEED",inputUserName));
+                    startActivity(new Intent(getApplicationContext(), UserActivity.class).putExtra("STRING_I_NEED", inputUserName));
                 }
-
 
 
             }
