@@ -18,6 +18,9 @@
     <string name="rep_name">Rep. Name</string>
     <string name="rep_name_">Rep. Name:</string>
     <string name="repositories">Repositories</string>
+    <string name="username">Enter GitHub User Name</string>
+
+
 
 
 </resources>
