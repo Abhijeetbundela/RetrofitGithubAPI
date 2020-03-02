@@ -12,10 +12,22 @@ public class GitHubRepo {
     @SerializedName("language")
     private String language;
 
-    public GitHubRepo(String name, String description, String language) {
-        this.setDescription(description);
-        this.setLanguage(language);
-        this.setName(name);
+    @SerializedName("created_at")
+    private String created;
+
+    @SerializedName("updated_at")
+    private String updated;
+
+    @SerializedName("pushed_at")
+    private String pushed;
+
+    public GitHubRepo(String name, String description, String language, String created, String updated, String pushed) {
+        this.name = name;
+        this.description = description;
+        this.language = language;
+        this.created = created;
+        this.updated = updated;
+        this.pushed = pushed;
     }
 
     public String getName() {
@@ -40,5 +52,29 @@ public class GitHubRepo {
 
     public void setLanguage(String language) {
         this.language = language;
+    }
+
+    public String getCreated() {
+        return created;
+    }
+
+    public void setCreated(String created) {
+        this.created = created;
+    }
+
+    public String getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(String updated) {
+        this.updated = updated;
+    }
+
+    public String getPushed() {
+        return pushed;
+    }
+
+    public void setPushed(String pushed) {
+        this.pushed = pushed;
     }
 }

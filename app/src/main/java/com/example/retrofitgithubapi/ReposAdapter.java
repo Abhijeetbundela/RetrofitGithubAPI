@@ -49,6 +49,28 @@ public class ReposAdapter extends RecyclerView.Adapter<ReposAdapter.ReposViewHol
             holder.repoLanguage.setText(repos.get(position).getLanguage());
         }
 
+        String created = repos.get(position).getCreated();
+        StringBuilder create = new StringBuilder(" ");
+
+        String updated = repos.get(position).getUpdated();
+        StringBuilder update = new StringBuilder(" ");
+
+        String pushed = repos.get(position).getPushed();
+        StringBuilder push = new StringBuilder(" ");
+
+        for(int i = 0; i<=9;i++){
+            create.append(created.charAt(i));
+            update.append(updated.charAt(i));
+            push.append(pushed.charAt(i));
+        }
+
+
+
+        holder.repoCreated.setText(create.toString());
+        holder.repoUpdated.setText(update.toString());
+        holder.repoPushed.setText(push.toString());
+
+
 
     }
 
@@ -60,7 +82,7 @@ public class ReposAdapter extends RecyclerView.Adapter<ReposAdapter.ReposViewHol
     public static class ReposViewHolder extends RecyclerView.ViewHolder {
 
         CardView cardView;
-        TextView repoName, repoDescription, repoLanguage;
+        TextView repoName, repoDescription, repoLanguage,repoCreated,repoUpdated,repoPushed;
 
         public ReposViewHolder(View v) {
             super(v);
@@ -68,6 +90,9 @@ public class ReposAdapter extends RecyclerView.Adapter<ReposAdapter.ReposViewHol
             repoName = v.findViewById(R.id.repo_name);
             repoDescription = v.findViewById(R.id.repo_desc);
             repoLanguage = v.findViewById(R.id.repo_language);
+            repoCreated = v.findViewById(R.id.repo_created);
+            repoUpdated = v.findViewById(R.id.repo_updated);
+            repoPushed = v.findViewById(R.id.repo_pushed);
 
         }
 
