@@ -1,4 +1,4 @@
-package com.example.retrofitgithubapi;
+package com.example.retrofitgithubapi.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.retrofitgithubapi.R;
 import com.example.retrofitgithubapi.model.GitHubRepo;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.retrofitgithubapi;
+package com.example.retrofitgithubapi.activities.java;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.retrofitgithubapi.R;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class LogInActivity extends AppCompatActivity {

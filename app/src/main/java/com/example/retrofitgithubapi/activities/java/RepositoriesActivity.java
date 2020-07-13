@@ -1,4 +1,4 @@
-package com.example.retrofitgithubapi;
+package com.example.retrofitgithubapi.activities.java;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,11 +13,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.retrofitgithubapi.R;
+import com.example.retrofitgithubapi.adapter.ReposAdapter;
 import com.example.retrofitgithubapi.model.GitHubRepo;
 import com.example.retrofitgithubapi.rest.APIClient;
 import com.example.retrofitgithubapi.rest.GitHubRepoEndPoint;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;

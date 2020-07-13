@@ -1,4 +1,4 @@
-package com.example.retrofitgithubapi;
+package com.example.retrofitgithubapi.activities.java;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.retrofitgithubapi.R;
 import com.example.retrofitgithubapi.model.GitHubUser;
 import com.example.retrofitgithubapi.rest.APIClient;
 import com.example.retrofitgithubapi.rest.GitHubUserEndPoints;
